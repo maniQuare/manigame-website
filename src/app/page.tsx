@@ -2,6 +2,6 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-   <div>IPL</div>
+   <div>IPL2</div>
   );
 }
