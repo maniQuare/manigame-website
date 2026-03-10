@@ -127,3 +127,44 @@
     @apply font-sans;
   }
 }
+
+
+
+
+
+
+
+.login-body {
+  min-height: 100vh;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-panel {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 320px;
+}
+
+.logo-main-div {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.btn-send {
+  width: 100%;
+  padding: 10px;
+  background: #ff9900;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
