@@ -9,7 +9,7 @@ export default function LoginPage() {
 
   return (
 
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-700 to-black">
+    <div className="min-h-screen flex items-center pb-4 justify-center bg-gradient-to-b from-gray-700 to-black">
 
       <div className="bg-black/60 backdrop-blur-md p-8 rounded-2xl shadow-xl w-[340px]">
 
