@@ -28,7 +28,7 @@ export default function NavDrawer() {
         </SheetTrigger>
 
         <SheetContent className="overflow-x-hidden">
-          <SheetHeader className=" bg-[#1fabb5] h-[130px] w-[100%] md:h-[55px]">
+          <SheetHeader className=" bg-[#1fabb5] h-[30px] w-[100%] md:h-[55px]">
            
             <SheetTitle className="text-white m-2 md:hidden">
               BSF1010PRO
