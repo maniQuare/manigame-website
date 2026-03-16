@@ -1,11 +1,11 @@
-import Header from "../components/Header";
+
 import Card from "../components/Card";
 
 export default function Page() {
   return (
     <div className="container">
 
-      <Header />
+      
 
       <div className="banner">
         AGAR SODA LAGAI KARNE PR APKE PROFIT KE SAUDE REMOVE KR DIY
