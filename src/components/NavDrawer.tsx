@@ -24,11 +24,11 @@ export default function NavDrawer() {
     <nav>
       <Sheet>
         <SheetTrigger className=" text-white ">
-          <Menu className="size-9 w-7 ml-2  bg-[#1fabb5]" />
+          <Menu className="size-6 w-7   bg-[#1fabb5]" />
         </SheetTrigger>
 
         <SheetContent className="overflow-x-hidden">
-          <SheetHeader className=" bg-[#1fabb5] h-[30px] w-[100%] md:h-[55px]">
+          <SheetHeader className=" bg-[#1fabb5] h-[70px] w-[100%] md:h-[55px]">
            
             <SheetTitle className="text-white m-2 md:hidden">
               BSF1010PRO
