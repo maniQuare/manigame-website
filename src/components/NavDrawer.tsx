@@ -24,7 +24,7 @@ export default function NavDrawer() {
     <nav>
       <Sheet>
         <SheetTrigger className=" text-white ">
-          <Menu className="size-6 w-7   bg-[#1fabb5]" />
+          <Menu className="size-7 w-7   bg-[#1fabb5] p-1" />
         </SheetTrigger>
 
         <SheetContent className="overflow-x-hidden">
