@@ -133,38 +133,64 @@
 
 
 
-
-.login-body {
-  min-height: 100vh;
-  background: #0f172a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body{
+  font-family: Arial;
+  background:#f3f3f3;
+  margin:0;
 }
 
-.login-panel {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  width: 320px;
+.header{
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+  background:#eee;
 }
 
-.logo-main-div {
-  text-align: center;
-  margin-bottom: 20px;
+.menu{
+  font-size:20px;
 }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+.offer{
+  margin-left:10px;
 }
 
-.btn-send {
-  width: 100%;
-  padding: 10px;
-  background: #ff9900;
-  border: none;
-  color: white;
-  cursor: pointer;
+.logout{
+  margin-right:10px;
+}
+
+.banner{
+  background:#1f4fa3;
+  color:white;
+  padding:10px;
+  text-align:center;
+}
+
+.container{
+  max-width:500px;
+  margin:auto;
+}
+
+.pageTitle{
+  padding:15px;
+}
+
+.card{
+  background:white;
+  margin:10px;
+  border-radius:5px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.1);
+}
+
+.cardTitle{
+  padding:10px;
+  background:#f0f0f0;
+  font-weight:bold;
+}
+
+.cardBody{
+  padding:15px;
+}
+
+.cardBody h2{
+  margin:0;
 }
