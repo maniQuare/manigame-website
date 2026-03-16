@@ -1,17 +1,19 @@
-"use client"
+import React from "react";
 
-export default function Header() {
+const Header = () => {
   return (
-    <header className="flex items-center justify-between bg-black text-white px-6 py-3">
-      <div className="font-bold text-lg">bsf1010pro</div>
-
-      <div className="flex items-center gap-4">
-        <button className="bg-yellow-500 px-3 py-1 rounded text-black">
-          Agent Offer
-        </button>
-
-        <button className="text-sm">Sign Out</button>
+    <div className="header">
+      <div className="left">
+        <button className="menu">☰</button>
+        <button className="offer">Agent Offer</button>
       </div>
-    </header>
-  )
-}
+
+      <div className="right">
+        <button className="logout">Sign out</button>
+        <span className="code">BSF1010PRO</span>
+      </div>
+    </div>
+  );
+};
+
+export default Header;
