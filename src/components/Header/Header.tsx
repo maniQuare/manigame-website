@@ -3,7 +3,7 @@ import NavDrawer from "./NavDrawer";
 
 const Header = () => {
   return (
-    <div className="border-b border-gray-200 pb-2">
+    <div className="border-b border-gray-400 ">
       <div><NavDrawer/></div>
      
     </div>
