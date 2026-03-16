@@ -18,9 +18,12 @@ import Link from "next/link";
 import { MdSupervisorAccount } from "react-icons/md";
 
 const Home_link = [
-  { name: "Bestsellers", href: "#" },
-  { name: "New Releases", href: "#" },
-  { name: "Movers and Shakers", href: "#" },
+  { name: "Live Matches", href: "#" },
+  { name: "Completed Matches", href: "#" },
+  { name: "Block Market", href: "#" },
+   { name: "Manage Clients", href: "#" },
+  { name: "Completed Matches", href: "#" },
+  { name: "Block Market", href: "#" },
 ];
 const Categories_link = [
   { name: "Mobiles", href: "#" },
@@ -53,29 +56,20 @@ export default function NavDrawer() {
     <nav>
       <Sheet>
         <SheetTrigger className=" text-white ">
-          <Menu className="size-9 w-7 ml-2" />
+          <Menu className="size-9 w-7 ml-2  bg-[#1fabb5]" />
         </SheetTrigger>
 
         <SheetContent className="overflow-x-hidden">
-          <SheetHeader className="bg-gray-800 h-[130px] w-[100%] md:h-[55px]">
-            <div className="flex justify-end text-white md:justify-start">
-              <Link href={"#"} className="flex items-center gap-2 ">
-                Sign in
-                <MdSupervisorAccount className="size-8.5" />
-              </Link>
-
-              <Link href={"#"}></Link>
-            </div>
-
+          <SheetHeader className=" bg-[#1fabb5] h-[130px] w-[100%] md:h-[55px]">
+           
             <SheetTitle className="text-white m-2 md:hidden">
-              <div>Browse</div>
-              <div>E-commerce</div>
+              BSF1010PRO
             </SheetTitle>
             <SheetDescription></SheetDescription>
           </SheetHeader>
           <div className="flex  justify-between  border-b-5 border-gray-300 items-center md:hidden">
             <Link href={"#"} className="ml-5.5 mb-5 font-bold ">
-              E-commerce Home
+              Dashboard
             </Link>
             <Link href={"#"} className="mr-7 mb-5 ">
               <GrHomeRounded className="font-bold" />
