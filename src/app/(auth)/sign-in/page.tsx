@@ -59,7 +59,7 @@ export default function SignInPage() {
               </div>
 
               <h1 className="text-2xl font-bold">
-                Game<span className="text-cyan-400">Types</span>
+                FF<span className="text-cyan-400">MANI</span>
               </h1>
             </div>
 
@@ -387,23 +387,23 @@ export default function SignInPage() {
 
               </div>
 
-              {/* Google */}
-              <button
-                type="button"
-                className="
-                  w-full min-h-[52px]
-                  rounded-xl
-                  border border-slate-800
-                  bg-[#050b12]
-                  hover:bg-slate-800/70
-                  flex items-center justify-center
-                  gap-3 text-sm font-medium
-                  transition
-                "
-              >
-                <Chrome size={18} />
-                Continue with Google
-              </button>
+              {/* WhatsApp */}
+<button
+  type="button"
+  className="
+    w-full min-h-[52px]
+    rounded-xl
+    border border-slate-800
+    bg-[#050b12]
+    hover:bg-slate-800/70
+    flex items-center justify-center
+    gap-3 text-sm font-medium
+    transition
+  "
+>
+  <MessageCircle size={18} />
+  Continue with WhatsApp
+</button>
 
               {/* Sign Up */}
               <p className="text-center text-xs sm:text-sm text-slate-600 mt-6">
@@ -414,7 +414,7 @@ export default function SignInPage() {
                   type="button"
                   className="text-cyan-400 hover:text-cyan-300 font-semibold"
                 >
-                  Sign Up
+                  Contact us 
                 </button>
 
               </p>
