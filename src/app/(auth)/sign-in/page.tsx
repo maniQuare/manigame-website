@@ -19,7 +19,7 @@ export default function SignInPage() {
   const [remember, setRemember] = useState(true);
 
   return (
-    <main className="min-h-screen bg-[#050b12] text-white flex items-center justify-center p-4">
+    <main className="min-h-screen bg-[#050b12] text-white flex items-center justify-center p-8">
 
       {/* Background Glow */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
