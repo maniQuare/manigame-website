@@ -17,6 +17,10 @@ export default function SignInPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loginType, setLoginType] = useState<"user" | "host">("user");
   const [remember, setRemember] = useState(true);
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   return (
     <main className="min-h-screen bg-[#050b12] text-white relative overflow-hidden">
