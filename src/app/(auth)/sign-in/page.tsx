@@ -137,6 +137,8 @@ export default function SignInPage() {
 
               <input
                 type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                
                 placeholder={
                   loginType === "host"
                     ? "Host email address"
@@ -257,7 +259,7 @@ export default function SignInPage() {
 
             <Shield size={13} />
 
-            Your FF MANI account is protected.
+            Your FF MANI account is protected.{email}
 
           </div>
 
