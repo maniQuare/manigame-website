@@ -33,10 +33,13 @@ export default function SignInPage() {
       {/* Main Container */}
       <div className="relative z-10 w-full max-w-[1100px] grid lg:grid-cols-2 overflow-hidden rounded-3xl border border-slate-800 bg-[#071018] shadow-2xl">
 
-        {/* LEFT SIDE */}
+        {/* =====================================================
+            LEFT SIDE
+        ===================================================== */}
+
         <section className="hidden lg:flex relative min-h-[700px] overflow-hidden">
 
-          {/* Gaming Background */}
+          {/* FF MANI Background */}
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -54,35 +57,46 @@ export default function SignInPage() {
 
             {/* Logo */}
             <div className="flex items-center gap-3">
+
               <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center">
-                <Gamepad2 size={26} className="text-cyan-500" />
+                <Gamepad2
+                  size={26}
+                  className="text-cyan-500"
+                />
               </div>
 
               <h1 className="text-2xl font-bold">
-                FF<span className="text-cyan-400">MANI</span>
+                FF <span className="text-cyan-400">MANI</span>
               </h1>
+
             </div>
 
             {/* Hero Content */}
             <div className="max-w-[500px]">
 
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-xs font-medium text-cyan-300 mb-6">
+
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                PLAY • COMPETE • CONNECT
+
+                PLAY • BATTLE • WIN
+
               </div>
 
               <h2 className="text-5xl xl:text-6xl font-black leading-[1.05]">
-                Your Game.
+
+                Welcome to
                 <br />
+
                 <span className="text-cyan-400">
-                  Your World.
+                  FF MANI.
                 </span>
+
               </h2>
 
               <p className="text-slate-300 mt-6 text-base leading-relaxed max-w-[430px]">
-                Join thousands of gamers, discover new
-                games, compete in tournaments and build
-                your gaming community.
+                Join FF MANI, connect with players, compete
+                in battles and tournaments, and experience
+                the ultimate gaming community.
               </p>
 
               {/* Features */}
@@ -103,10 +117,9 @@ export default function SignInPage() {
                 <Feature
                   icon={<Trophy size={21} />}
                   title="100+"
-                  text="Tournaments"
+                  text="Battles"
                 />
 
-                {/* WALLET */}
                 <Feature
                   icon={<Wallet size={21} />}
                   title="Wallet"
@@ -115,24 +128,28 @@ export default function SignInPage() {
 
               </div>
 
-              {/* Wallet Mini Card */}
+              {/* FF MANI Wallet */}
               <div className="mt-8 flex items-center gap-4 p-4 rounded-2xl border border-cyan-400/10 bg-[#071018]/70 backdrop-blur-sm max-w-[360px]">
 
                 <div className="w-11 h-11 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center">
+
                   <Wallet
                     size={21}
                     className="text-cyan-400"
                   />
+
                 </div>
 
                 <div>
+
                   <p className="text-xs text-slate-500">
-                    Gaming Wallet
+                    FF MANI Wallet
                   </p>
 
                   <p className="text-sm font-bold text-white mt-0.5">
-                    Easy • Secure • Instant
+                    Fast • Secure • Reliable
                   </p>
+
                 </div>
 
               </div>
@@ -141,14 +158,23 @@ export default function SignInPage() {
 
             {/* Bottom */}
             <div className="flex items-center gap-2 text-xs text-slate-500">
-              <Shield size={14} className="text-cyan-400" />
-              Secure gaming community
+
+              <Shield
+                size={14}
+                className="text-cyan-400"
+              />
+
+              Secure FF MANI community
+
             </div>
 
           </div>
         </section>
 
-        {/* RIGHT SIDE - SIGN IN */}
+        {/* =====================================================
+            RIGHT SIDE - SIGN IN
+        ===================================================== */}
+
         <section className="w-full flex items-center justify-center p-5 sm:p-8 lg:p-10">
 
           <div className="w-full max-w-[470px]">
@@ -157,14 +183,16 @@ export default function SignInPage() {
             <div className="flex lg:hidden items-center justify-center gap-3 mb-8">
 
               <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center">
+
                 <Gamepad2
                   size={25}
                   className="text-cyan-500"
                 />
+
               </div>
 
               <h1 className="text-2xl font-bold">
-                Game<span className="text-cyan-400">Types</span>
+                FF <span className="text-cyan-400">MANI</span>
               </h1>
 
             </div>
@@ -173,7 +201,7 @@ export default function SignInPage() {
             <div className="mb-7">
 
               <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-medium">
-                Welcome Back
+                Welcome Back to FF MANI
               </p>
 
               <h2 className="text-3xl sm:text-4xl font-black mt-2">
@@ -181,7 +209,7 @@ export default function SignInPage() {
               </h2>
 
               <p className="text-sm text-slate-500 mt-2">
-                Sign in and continue your gaming journey.
+                Sign in and continue your FF MANI journey.
               </p>
 
             </div>
@@ -237,10 +265,10 @@ export default function SignInPage() {
 
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
 
-                Signing in as
+                Signing in to
 
                 <span className="text-slate-300 font-semibold">
-                  {loginType === "user" ? "User" : "Host"}
+                  FF MANI {loginType === "user" ? "User" : "Host"}
                 </span>
 
               </div>
@@ -315,11 +343,13 @@ export default function SignInPage() {
                     hover:text-white
                   "
                 >
+
                   {showPassword ? (
                     <EyeOff size={19} />
                   ) : (
                     <Eye size={19} />
                   )}
+
                 </button>
 
               </div>
@@ -365,6 +395,7 @@ export default function SignInPage() {
                   shadow-xl shadow-cyan-400/10
                 "
               >
+
                 Sign In
 
                 <ArrowRight
@@ -386,36 +417,38 @@ export default function SignInPage() {
                 <div className="h-px bg-slate-800 flex-1" />
 
               </div>
-              
+
               {/* WhatsApp */}
-<button
-  type="button"
-  className="
-    w-full min-h-[52px]
-    rounded-xl
-    border border-slate-800
-    bg-[#050b12]
-    hover:bg-slate-800/70
-    flex items-center justify-center
-    gap-3 text-sm font-medium
-    transition
-  "
->
-  <MessageCircle size={18} />
-  Continue with WhatsApp
-</button>
+              <button
+                type="button"
+                className="
+                  w-full min-h-[52px]
+                  rounded-xl
+                  border border-slate-800
+                  bg-[#050b12]
+                  hover:bg-slate-800/70
+                  flex items-center justify-center
+                  gap-3 text-sm font-medium
+                  transition
+                "
+              >
 
+                <MessageCircle size={18} />
 
-              {/* Sign Up */}
+                Continue with WhatsApp
+
+              </button>
+
+              {/* Contact */}
               <p className="text-center text-xs sm:text-sm text-slate-600 mt-6">
 
-                Don't have an account?{" "}
+                Need help with FF MANI?{" "}
 
                 <button
                   type="button"
                   className="text-cyan-400 hover:text-cyan-300 font-semibold"
                 >
-                  Contact us 
+                  Contact us
                 </button>
 
               </p>
@@ -427,7 +460,7 @@ export default function SignInPage() {
 
               <Shield size={13} />
 
-              Your account is protected with secure authentication.
+              Your FF MANI account is protected with secure authentication.
 
             </div>
 
@@ -461,6 +494,7 @@ function Feature({
       </div>
 
       <div>
+
         <p className="font-bold text-sm">
           {title}
         </p>
@@ -468,6 +502,7 @@ function Feature({
         <p className="text-[10px] text-slate-500">
           {text}
         </p>
+
       </div>
 
     </div>
