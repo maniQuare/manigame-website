@@ -159,6 +159,7 @@ export default function SignInPage() {
 
               <input
                 type={showPassword ? "text" : "password"}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 className="w-full h-14 rounded-xl border border-slate-800 bg-[#050b12] pl-12 pr-12 text-sm text-white outline-none placeholder:text-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition"
               />
