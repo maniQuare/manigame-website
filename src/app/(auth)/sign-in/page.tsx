@@ -17,13 +17,18 @@ export default function SignInPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loginType, setLoginType] = useState<"user" | "host">("user");
   const [remember, setRemember] = useState(true);
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!email || !password) {
+      alert("Please enter email and password.");
+      return;
+    }
 
     setLoading(true);
 
@@ -36,23 +41,26 @@ export default function SignInPage() {
         body: JSON.stringify({
           email,
           password,
+          role: loginType,
+          remember,
         }),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        alert(data.message);
+        alert(data.message || "Login failed.");
         return;
       }
 
-      console.log("Login successful", data);
+      console.log("Login successful:", data);
 
-      // Redirect after successful login
+      // Example:
       // router.push("/dashboard");
 
     } catch (error) {
       console.error("Login error:", error);
+      alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -61,14 +69,15 @@ export default function SignInPage() {
   return (
     <main className="min-h-screen bg-[#050b12] text-white relative overflow-hidden">
 
-      {/* Original Gaming Background */}
+      {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
 
         <div className="absolute top-[-180px] left-[-150px] w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-[120px]" />
 
         <div className="absolute bottom-[-180px] right-[-150px] w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-[120px]" />
 
-        <div className="absolute inset-0 opacity-[0.035]"
+        <div
+          className="absolute inset-0 opacity-[0.035]"
           style={{
             backgroundImage:
               "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
@@ -163,94 +172,105 @@ export default function SignInPage() {
 
             </div>
 
-            {/* Email */}
-            <div className="relative mt-5">
+            {/* FORM */}
+            <form onSubmit={handleSubmit}>
 
-              <Mail
-                size={19}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"
-              />
+              {/* Email */}
+              <div className="relative mt-5">
 
-              <input
-                type="email"
-                onChange={(e) => setEmail(e.target.value)}
-                
-                placeholder={
-                  loginType === "host"
-                    ? "Host email address"
-                    : "Email address"
-                }
-                className="w-full h-14 rounded-xl border border-slate-800 bg-[#050b12] pl-12 pr-4 text-sm text-white outline-none placeholder:text-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition"
-              />
+                <Mail
+                  size={19}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"
+                />
 
-            </div>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={
+                    loginType === "host"
+                      ? "Host email address"
+                      : "Email address"
+                  }
+                  autoComplete="email"
+                  className="w-full h-14 rounded-xl border border-slate-800 bg-[#050b12] pl-12 pr-4 text-sm text-white outline-none placeholder:text-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition"
+                />
 
-            {/* Password */}
-            <div className="relative mt-4">
+              </div>
 
-              <Lock
-                size={19}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"
-              />
+              {/* Password */}
+              <div className="relative mt-4">
 
-              <input
-                type={showPassword ? "text" : "password"}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-                className="w-full h-14 rounded-xl border border-slate-800 bg-[#050b12] pl-12 pr-12 text-sm text-white outline-none placeholder:text-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition"
-              />
+                <Lock
+                  size={19}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"
+                />
 
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                  autoComplete="current-password"
+                  className="w-full h-14 rounded-xl border border-slate-800 bg-[#050b12] pl-12 pr-12 text-sm text-white outline-none placeholder:text-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition"
+                />
+
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition"
+                >
+                  {showPassword ? (
+                    <EyeOff size={19} />
+                  ) : (
+                    <Eye size={19} />
+                  )}
+                </button>
+
+              </div>
+
+              {/* Remember / Forgot */}
+              <div className="flex items-center justify-between mt-4">
+
+                <label className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 cursor-pointer">
+
+                  <input
+                    type="checkbox"
+                    checked={remember}
+                    onChange={(e) => setRemember(e.target.checked)}
+                    className="w-4 h-4 accent-cyan-400"
+                  />
+
+                  Remember me
+
+                </label>
+
+                <button
+                  type="button"
+                  className="text-xs sm:text-sm text-cyan-400 hover:text-cyan-300"
+                >
+                  Forgot password?
+                </button>
+
+              </div>
+
+              {/* Sign In */}
               <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition"
+                type="submit"
+                disabled={loading}
+                className="group w-full h-14 mt-6 rounded-xl bg-cyan-400 hover:bg-cyan-300 disabled:opacity-60 disabled:cursor-not-allowed text-black font-bold flex items-center justify-center gap-2 transition-all shadow-xl shadow-cyan-400/10"
               >
-                {showPassword ? (
-                  <EyeOff size={19} />
-                ) : (
-                  <Eye size={19} />
+                {loading ? "Signing In..." : "Sign In"}
+
+                {!loading && (
+                  <ArrowRight
+                    size={19}
+                    className="group-hover:translate-x-1 transition"
+                  />
                 )}
               </button>
 
-            </div>
-
-            {/* Remember / Forgot */}
-            <div className="flex items-center justify-between mt-4">
-
-              <label className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 cursor-pointer">
-
-                <input
-                  type="checkbox"
-                  checked={remember}
-                  onChange={(e) => setRemember(e.target.checked)}
-                  className="w-4 h-4 accent-cyan-400"
-                />
-
-                Remember me
-
-              </label>
-
-              <button
-                type="button"
-                className="text-xs sm:text-sm text-cyan-400 hover:text-cyan-300"
-              >
-                Forgot password?
-              </button>
-
-            </div>
-
-            {/* Sign In */}
-            <button
-              type="button"
-              className="group w-full h-14 mt-6 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-bold flex items-center justify-center gap-2 transition-all shadow-xl shadow-cyan-400/10"
-            >
-              Sign In
-
-              <ArrowRight
-                size={19}
-                className="group-hover:translate-x-1 transition"
-              />
-            </button>
+            </form>
 
             {/* Divider */}
             <div className="flex items-center gap-4 my-6">
@@ -271,7 +291,6 @@ export default function SignInPage() {
               className="w-full min-h-[52px] rounded-xl border border-slate-800 bg-[#050b12] hover:bg-slate-800/70 flex items-center justify-center gap-3 text-sm font-medium transition"
             >
               <MessageCircle size={18} />
-
               Continue with WhatsApp
             </button>
 
@@ -293,16 +312,14 @@ export default function SignInPage() {
 
           {/* Security */}
           <div className="flex items-center justify-center gap-2 mt-6 text-[11px] text-slate-600">
-
             <Shield size={13} />
-
-            Your FF MANI account is protected.{email}
-
+            Your FF MANI account is protected.
           </div>
 
         </section>
 
       </div>
+
     </main>
   );
-          }
+}
