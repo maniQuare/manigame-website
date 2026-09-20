@@ -6,6 +6,7 @@ export interface IHost extends Document {
   password: string;
   name?: string;
   role: "host";
+  isVerified: boolean;
   image?: string;
 }
 
@@ -40,6 +41,11 @@ const HostSchema = new Schema<IHost>(
       type: String,
       default: "host",
       enum: ["host"],
+    },
+
+    isVerified: {
+      type: Boolean,
+      default: true,
     },
 
     image: {
