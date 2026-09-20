@@ -10,7 +10,7 @@ import {
   ArrowRight,
   Shield,
   UserRound,
-  Chrome,
+  MessageCircle,
   Trophy,
   Users,
   Wallet,
@@ -386,7 +386,7 @@ export default function SignInPage() {
                 <div className="h-px bg-slate-800 flex-1" />
 
               </div>
-
+              
               {/* WhatsApp */}
 <button
   type="button"
@@ -404,6 +404,7 @@ export default function SignInPage() {
   <MessageCircle size={18} />
   Continue with WhatsApp
 </button>
+
 
               {/* Sign Up */}
               <p className="text-center text-xs sm:text-sm text-slate-600 mt-6">
