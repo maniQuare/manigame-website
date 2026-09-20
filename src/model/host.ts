@@ -1,22 +1,39 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IHost extends Document {
-  username: string;
+  name: string;
+  userId: string;
   email: string;
   password: string;
-  name?: string;
+  phone: string;
   role: "host";
+  image: string;
+  avatar: string;
+
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    pincode: string;
+    country: string;
+  };
+
   isVerified: boolean;
-  image?: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 const HostSchema = new Schema<IHost>(
   {
-    username: {
+    name: {
+      type: String,
+      required: true,
+    },
+
+    userId: {
       type: String,
       required: true,
       unique: true,
-      trim: true,
     },
 
     email: {
@@ -24,7 +41,6 @@ const HostSchema = new Schema<IHost>(
       required: true,
       unique: true,
       lowercase: true,
-      trim: true,
     },
 
     password: {
@@ -32,24 +48,57 @@ const HostSchema = new Schema<IHost>(
       required: true,
     },
 
-    name: {
+    phone: {
       type: String,
-      trim: true,
+      required: true,
     },
 
     role: {
       type: String,
-      default: "host",
       enum: ["host"],
+      default: "host",
+    },
+
+    image: {
+      type: String,
+      default: "",
+    },
+
+    avatar: {
+      type: String,
+      default: "",
+    },
+
+    address: {
+      street: {
+        type: String,
+        default: "",
+      },
+
+      city: {
+        type: String,
+        default: "",
+      },
+
+      state: {
+        type: String,
+        default: "",
+      },
+
+      pincode: {
+        type: String,
+        default: "",
+      },
+
+      country: {
+        type: String,
+        default: "",
+      },
     },
 
     isVerified: {
       type: Boolean,
       default: true,
-    },
-
-    image: {
-      type: String,
     },
   },
   {
