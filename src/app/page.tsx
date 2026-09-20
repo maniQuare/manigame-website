@@ -1,5 +1,5 @@
 
-import signIn from "@/app/auth/sign-in"
+import signIn from "./auth/sign-in"
 
 export default function Page() {
   return (
