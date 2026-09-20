@@ -8,469 +8,249 @@ import {
   Eye,
   EyeOff,
   ArrowRight,
-  Users,
-  Trophy,
-  Home,
-  Search,
-  User,
-  Menu,
-  Bell,
   Shield,
   UserRound,
+  Chrome,
+  Trophy,
+  Users,
+  Wallet,
 } from "lucide-react";
 
-export default function SignIn() {
+export default function SignInPage() {
   const [showPassword, setShowPassword] = useState(false);
-  const [remember, setRemember] = useState(true);
   const [loginType, setLoginType] = useState<"user" | "host">("user");
+  const [remember, setRemember] = useState(true);
 
   return (
-    <main
-      className="
-        min-h-screen
-        bg-[#050a18]
-        text-white
-        overflow-x-hidden
-        pb-[calc(4rem+env(safe-area-inset-bottom))]
-        md:pb-0
-      "
-    >
-      {/* ================================================= */}
-      {/* TOP APP BAR */}
-      {/* ================================================= */}
+    <main className="min-h-screen bg-[#050b12] text-white flex items-center justify-center p-4 sm:p-6">
 
-      <header
-        className="
-          fixed
-          top-0
-          left-0
-          right-0
-          z-50
-          h-16
-          border-b
-          border-slate-800/80
-          bg-[#070d1d]/95
-          backdrop-blur-xl
-        "
-      >
-        <div
-          className="
-            h-full
-            max-w-[1600px]
-            mx-auto
-            px-4
-            sm:px-6
-            lg:px-10
-            flex
-            items-center
-            justify-between
-          "
-        >
-          {/* Logo */}
+      {/* Background Glow */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-cyan-500/10 blur-[140px] rounded-full" />
+        <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-cyan-500/10 blur-[140px] rounded-full" />
+      </div>
 
-          <div className="flex items-center gap-2.5">
-            <div
-              className="
-                w-9
-                h-9
-                sm:w-10
-                sm:h-10
-                rounded-xl
-                bg-white
-                flex
-                items-center
-                justify-center
-              "
-            >
-              <Gamepad2 size={23} className="text-blue-600" />
-            </div>
+      {/* Main Container */}
+      <div className="relative z-10 w-full max-w-[1100px] grid lg:grid-cols-2 overflow-hidden rounded-3xl border border-slate-800 bg-[#071018] shadow-2xl">
 
-            <h1 className="text-xl sm:text-2xl font-bold tracking-tight">
-              Game<span className="text-blue-500">Types</span>
-            </h1>
-          </div>
+        {/* LEFT SIDE */}
+        <section className="hidden lg:flex relative min-h-[700px] overflow-hidden">
 
-          {/* Desktop Navigation */}
-
-          <nav className="hidden md:flex items-center gap-8 text-sm text-slate-400">
-            <a href="#" className="hover:text-white transition">
-              PLAY
-            </a>
-
-            <a href="#" className="hover:text-white transition">
-              GAMES
-            </a>
-
-            <a href="#" className="hover:text-white transition">
-              HOST
-            </a>
-
-            <a href="#" className="hover:text-white transition">
-              COMMUNITY
-            </a>
-          </nav>
-
-          {/* Right Actions */}
-
-          <div className="flex items-center gap-2">
-            {/* Search */}
-
-            <button
-              type="button"
-              className="
-                hidden
-                sm:flex
-                w-10
-                h-10
-                rounded-xl
-                items-center
-                justify-center
-                text-slate-400
-                hover:text-white
-                hover:bg-slate-800
-                transition
-              "
-            >
-              <Search size={20} />
-            </button>
-
-            {/* Notification */}
-
-            <button
-              type="button"
-              className="
-                w-10
-                h-10
-                rounded-xl
-                flex
-                items-center
-                justify-center
-                text-slate-400
-                hover:text-white
-                hover:bg-slate-800
-                transition
-              "
-            >
-              <Bell size={20} />
-            </button>
-
-            {/* Profile */}
-
-            <button
-              type="button"
-              className="
-                hidden
-                sm:flex
-                w-10
-                h-10
-                rounded-xl
-                items-center
-                justify-center
-                bg-blue-600
-                hover:bg-blue-500
-                transition
-              "
-            >
-              <User size={19} />
-            </button>
-
-            {/* Mobile Menu */}
-
-            <button
-              type="button"
-              className="
-                md:hidden
-                w-10
-                h-10
-                flex
-                items-center
-                justify-center
-                text-slate-400
-              "
-            >
-              <Menu size={22} />
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* ================================================= */}
-      {/* MAIN */}
-      {/* ================================================= */}
-
-      <div className="min-h-screen flex pt-16">
-        {/* ================================================= */}
-        {/* LEFT SIDE - DESKTOP */}
-        {/* ================================================= */}
-
-        <section
-          className="
-            relative
-            hidden
-            lg:flex
-            lg:w-1/2
-            min-h-[calc(100vh-64px)]
-            overflow-hidden
-          "
-        >
-          {/* Background */}
-
+          {/* Gaming Background */}
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: "url('/gaming-bg.jpg')",
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1400&q=90')",
             }}
           />
 
           {/* Overlay */}
-
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-r
-              from-[#050a18]/95
-              via-[#07102a]/80
-              to-[#050a18]/95
-            "
-          />
-
-          {/* Blue Glow */}
-
-          <div
-            className="
-              absolute
-              w-[550px]
-              h-[550px]
-              bg-blue-600/20
-              blur-[150px]
-              rounded-full
-              -left-40
-              bottom-0
-            "
-          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050b12] via-[#050b12]/80 to-[#050b12]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050b12] via-transparent to-transparent" />
 
           {/* Content */}
+          <div className="relative z-10 flex flex-col justify-between p-10 xl:p-14 w-full">
 
-          <div className="relative z-10 w-full p-10 xl:p-14 flex flex-col">
-            <div className="flex-1 flex flex-col justify-center max-w-xl">
-              {/* Community */}
-
-              <div className="mb-5 inline-flex items-center gap-2 text-blue-400 text-sm font-medium">
-                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-
-                GAME COMMUNITY
+            {/* Logo */}
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center">
+                <Gamepad2 size={26} className="text-cyan-500" />
               </div>
 
-              {/* Heading */}
+              <h1 className="text-2xl font-bold">
+                Game<span className="text-cyan-400">Types</span>
+              </h1>
+            </div>
 
-              <h2 className="text-5xl xl:text-6xl font-bold leading-tight">
-                Welcome Back,
+            {/* Hero Content */}
+            <div className="max-w-[500px]">
+
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-xs font-medium text-cyan-300 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                PLAY • COMPETE • CONNECT
+              </div>
+
+              <h2 className="text-5xl xl:text-6xl font-black leading-[1.05]">
+                Your Game.
                 <br />
-
-                <span className="text-blue-500">Gamer!</span>
+                <span className="text-cyan-400">
+                  Your World.
+                </span>
               </h2>
 
-              {/* Description */}
-
-              <p className="text-lg xl:text-xl text-slate-300 mt-6 leading-relaxed">
-                Sign in to continue your game journey
-                <br />
-                and explore new challenges.
+              <p className="text-slate-300 mt-6 text-base leading-relaxed max-w-[430px]">
+                Join thousands of gamers, discover new
+                games, compete in tournaments and build
+                your gaming community.
               </p>
 
               {/* Features */}
+              <div className="grid grid-cols-2 xl:grid-cols-4 gap-5 mt-10">
 
-              <div className="flex flex-wrap gap-8 mt-12">
                 <Feature
-                  icon={<Gamepad2 size={24} />}
-                  title="Play"
-                  text="Popular Games"
+                  icon={<Gamepad2 size={21} />}
+                  title="500+"
+                  text="Games"
                 />
 
                 <Feature
-                  icon={<Users size={24} />}
-                  title="Connect"
-                  text="With Friends"
+                  icon={<Users size={21} />}
+                  title="1M+"
+                  text="Players"
                 />
 
                 <Feature
-                  icon={<Trophy size={24} />}
-                  title="Win"
-                  text="Rewards"
+                  icon={<Trophy size={21} />}
+                  title="100+"
+                  text="Tournaments"
                 />
+
+                {/* WALLET */}
+                <Feature
+                  icon={<Wallet size={21} />}
+                  title="Wallet"
+                  text="Secure & Fast"
+                />
+
               </div>
+
+              {/* Wallet Mini Card */}
+              <div className="mt-8 flex items-center gap-4 p-4 rounded-2xl border border-cyan-400/10 bg-[#071018]/70 backdrop-blur-sm max-w-[360px]">
+
+                <div className="w-11 h-11 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center">
+                  <Wallet
+                    size={21}
+                    className="text-cyan-400"
+                  />
+                </div>
+
+                <div>
+                  <p className="text-xs text-slate-500">
+                    Gaming Wallet
+                  </p>
+
+                  <p className="text-sm font-bold text-white mt-0.5">
+                    Easy • Secure • Instant
+                  </p>
+                </div>
+
+              </div>
+
             </div>
+
+            {/* Bottom */}
+            <div className="flex items-center gap-2 text-xs text-slate-500">
+              <Shield size={14} className="text-cyan-400" />
+              Secure gaming community
+            </div>
+
           </div>
         </section>
 
-        {/* ================================================= */}
-        {/* RIGHT SIDE */}
-        {/* ================================================= */}
+        {/* RIGHT SIDE - SIGN IN */}
+        <section className="w-full flex items-center justify-center p-5 sm:p-8 lg:p-10">
 
-        <section
-          className="
-            w-full
-            lg:w-1/2
-            min-h-[calc(100vh-64px)]
-            flex
-            items-center
-            justify-center
-            px-4
-            sm:px-6
-            py-8
-            sm:py-10
-          "
-        >
-          <div className="w-full max-w-[560px]">
-            {/* Small App Navigation */}
+          <div className="w-full max-w-[470px]">
 
-            <div className="hidden sm:flex items-center justify-between mb-5">
-              <div>
-                <p className="text-xs text-slate-500 uppercase tracking-widest">
-                  Account
-                </p>
+            {/* Mobile Logo */}
+            <div className="flex lg:hidden items-center justify-center gap-3 mb-8">
 
-                <p className="text-sm text-slate-300 mt-1">
-                  Sign in to GameTypes
-                </p>
+              <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center">
+                <Gamepad2
+                  size={25}
+                  className="text-cyan-500"
+                />
               </div>
 
-              <div className="flex items-center gap-2 text-xs text-slate-500">
-                <Shield size={15} />
+              <h1 className="text-2xl font-bold">
+                Game<span className="text-cyan-400">Types</span>
+              </h1>
 
-                Secure Login
-              </div>
             </div>
 
-            {/* ================================================= */}
-            {/* LOGIN CARD */}
-            {/* ================================================= */}
+            {/* Header */}
+            <div className="mb-7">
 
-            <div
-              className="
-                rounded-2xl
-                sm:rounded-3xl
-                border
-                border-slate-700/60
-                bg-[#0c1426]/95
-                backdrop-blur-xl
-                p-5
-                sm:p-8
-                lg:p-10
-                shadow-2xl
-              "
-            >
-              {/* Heading */}
+              <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-medium">
+                Welcome Back
+              </p>
 
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-bold">
-                  Sign In
-                </h2>
+              <h2 className="text-3xl sm:text-4xl font-black mt-2">
+                Sign In
+              </h2>
 
-                <p className="text-sm sm:text-base text-slate-400 mt-2">
-                  Choose how you want to access GameTypes
-                </p>
-              </div>
+              <p className="text-sm text-slate-500 mt-2">
+                Sign in and continue your gaming journey.
+              </p>
 
-              {/* ================================================= */}
-              {/* USER / HOST */}
-              {/* ================================================= */}
+            </div>
 
-              <div
-                className="
-                  grid
-                  grid-cols-2
-                  mt-7
-                  sm:mt-9
-                  border
-                  border-slate-700
-                  rounded-xl
-                  p-1
-                  bg-[#080f20]
-                "
-              >
-                {/* User */}
+            {/* Login Card */}
+            <div className="rounded-2xl border border-slate-800 bg-[#09131e] p-5 sm:p-7">
+
+              {/* User / Host */}
+              <div className="grid grid-cols-2 gap-1 p-1 rounded-xl bg-[#050b12] border border-slate-800">
 
                 <button
                   type="button"
                   onClick={() => setLoginType("user")}
                   className={`
-                    h-12
-                    sm:h-14
-                    rounded-lg
-                    flex
-                    items-center
-                    justify-center
-                    gap-2
-                    font-semibold
+                    h-12 rounded-lg
+                    flex items-center justify-center gap-2
+                    text-sm font-semibold
                     transition-all
                     ${
                       loginType === "user"
-                        ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20"
+                        ? "bg-cyan-400 text-black shadow-lg shadow-cyan-400/20"
                         : "text-slate-500 hover:text-white"
                     }
                   `}
                 >
-                  <UserRound size={19} />
-
+                  <UserRound size={18} />
                   User
                 </button>
-
-                {/* Host */}
 
                 <button
                   type="button"
                   onClick={() => setLoginType("host")}
                   className={`
-                    h-12
-                    sm:h-14
-                    rounded-lg
-                    flex
-                    items-center
-                    justify-center
-                    gap-2
-                    font-semibold
+                    h-12 rounded-lg
+                    flex items-center justify-center gap-2
+                    text-sm font-semibold
                     transition-all
                     ${
                       loginType === "host"
-                        ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20"
+                        ? "bg-cyan-400 text-black shadow-lg shadow-cyan-400/20"
                         : "text-slate-500 hover:text-white"
                     }
                   `}
                 >
-                  <Shield size={19} />
-
+                  <Shield size={18} />
                   Host
                 </button>
+
               </div>
 
-              {/* Selected Type */}
+              {/* Selected */}
+              <div className="flex items-center gap-2 mt-4 text-xs text-slate-500">
 
-              <div className="mt-5 flex items-center gap-2 text-xs text-slate-500">
-                <span className="w-2 h-2 rounded-full bg-blue-500" />
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
 
-                Signing in as{" "}
-                <span className="text-slate-300 font-medium">
+                Signing in as
+
+                <span className="text-slate-300 font-semibold">
                   {loginType === "user" ? "User" : "Host"}
                 </span>
+
               </div>
 
-              {/* ================================================= */}
-              {/* EMAIL */}
-              {/* ================================================= */}
+              {/* Email */}
+              <div className="relative mt-5">
 
-              <div className="relative mt-6">
                 <Mail
-                  size={20}
-                  className="
-                    absolute
-                    left-4
-                    sm:left-5
-                    top-1/2
-                    -translate-y-1/2
-                    text-slate-400
-                  "
+                  size={19}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"
                 />
 
                 <input
@@ -481,280 +261,187 @@ export default function SignIn() {
                       : "Email address"
                   }
                   className="
-                    w-full
-                    h-14
-                    sm:h-16
-                    rounded-xl
-                    border
-                    border-slate-700
-                    bg-[#080f20]
-                    pl-12
-                    sm:pl-14
-                    pr-4
-                    text-white
-                    text-sm
-                    sm:text-base
+                    w-full h-14 rounded-xl
+                    border border-slate-800
+                    bg-[#050b12]
+                    pl-12 pr-4
+                    text-sm text-white
                     outline-none
-                    placeholder:text-slate-500
-                    focus:border-blue-500
+                    placeholder:text-slate-600
+                    focus:border-cyan-400
                     focus:ring-2
-                    focus:ring-blue-500/20
+                    focus:ring-cyan-400/10
                     transition
                   "
                 />
+
               </div>
 
-              {/* ================================================= */}
-              {/* PASSWORD */}
-              {/* ================================================= */}
-
+              {/* Password */}
               <div className="relative mt-4">
+
                 <Lock
-                  size={20}
-                  className="
-                    absolute
-                    left-4
-                    sm:left-5
-                    top-1/2
-                    -translate-y-1/2
-                    text-slate-400
-                  "
+                  size={19}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"
                 />
 
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   className="
-                    w-full
-                    h-14
-                    sm:h-16
-                    rounded-xl
-                    border
-                    border-slate-700
-                    bg-[#080f20]
-                    pl-12
-                    sm:pl-14
-                    pr-12
-                    text-white
-                    text-sm
-                    sm:text-base
+                    w-full h-14 rounded-xl
+                    border border-slate-800
+                    bg-[#050b12]
+                    pl-12 pr-12
+                    text-sm text-white
                     outline-none
-                    placeholder:text-slate-500
-                    focus:border-blue-500
+                    placeholder:text-slate-600
+                    focus:border-cyan-400
                     focus:ring-2
-                    focus:ring-blue-500/20
+                    focus:ring-cyan-400/10
                     transition
                   "
                 />
 
                 <button
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={() =>
+                    setShowPassword(!showPassword)
+                  }
                   className="
-                    absolute
-                    right-4
-                    top-1/2
+                    absolute right-4 top-1/2
                     -translate-y-1/2
-                    text-slate-400
+                    text-slate-500
                     hover:text-white
                   "
                 >
                   {showPassword ? (
-                    <EyeOff size={20} />
+                    <EyeOff size={19} />
                   ) : (
-                    <Eye size={20} />
+                    <Eye size={19} />
                   )}
                 </button>
+
               </div>
 
-              {/* ================================================= */}
-              {/* REMEMBER */}
-              {/* ================================================= */}
+              {/* Remember */}
+              <div className="flex items-center justify-between mt-4">
 
-              <div className="flex items-center justify-between mt-5 text-xs sm:text-sm">
-                <label className="flex items-center gap-2.5 text-slate-400 cursor-pointer">
+                <label className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 cursor-pointer">
+
                   <input
                     type="checkbox"
                     checked={remember}
-                    onChange={(e) => setRemember(e.target.checked)}
-                    className="w-4 h-4 sm:w-5 sm:h-5 accent-blue-600"
+                    onChange={(e) =>
+                      setRemember(e.target.checked)
+                    }
+                    className="w-4 h-4 accent-cyan-400"
                   />
 
                   Remember me
+
                 </label>
 
                 <button
                   type="button"
-                  className="text-blue-500 hover:text-blue-400"
+                  className="text-xs sm:text-sm text-cyan-400 hover:text-cyan-300"
                 >
                   Forgot password?
                 </button>
+
               </div>
 
-              {/* ================================================= */}
-              {/* SIGN IN BUTTON */}
-              {/* ================================================= */}
-
+              {/* Sign In */}
               <button
                 type="button"
                 className="
-                  group
-                  w-full
-                  h-14
-                  sm:h-16
-                  mt-7
+                  group w-full h-14 mt-6
                   rounded-xl
-                  bg-blue-600
-                  hover:bg-blue-500
-                  active:scale-[0.99]
-                  font-semibold
-                  text-base
-                  sm:text-lg
-                  flex
-                  items-center
-                  justify-center
-                  gap-3
-                  shadow-xl
-                  shadow-blue-600/20
+                  bg-cyan-400
+                  hover:bg-cyan-300
+                  text-black font-bold
+                  flex items-center justify-center gap-2
                   transition-all
+                  shadow-xl shadow-cyan-400/10
                 "
               >
                 Sign In
 
                 <ArrowRight
-                  size={21}
+                  size={19}
                   className="group-hover:translate-x-1 transition"
                 />
+
               </button>
 
-              {/* ================================================= */}
-              {/* OR */}
-              {/* ================================================= */}
+              {/* Divider */}
+              <div className="flex items-center gap-4 my-6">
 
-              <div className="flex items-center gap-4 my-7">
-                <div className="h-px bg-slate-700 flex-1" />
+                <div className="h-px bg-slate-800 flex-1" />
 
-                <span className="text-slate-500 text-xs">OR</span>
+                <span className="text-[11px] text-slate-600">
+                  OR
+                </span>
 
-                <div className="h-px bg-slate-700 flex-1" />
+                <div className="h-px bg-slate-800 flex-1" />
+
               </div>
 
-              {/* ================================================= */}
-              {/* GOOGLE */}
-              {/* ================================================= */}
-
+              {/* Google */}
               <button
                 type="button"
                 className="
-                  w-full
-                  h-14
+                  w-full min-h-[52px]
                   rounded-xl
-                  border
-                  border-slate-700
-                  hover:bg-slate-800
-                  flex
-                  items-center
-                  justify-center
-                  gap-3
-                  font-medium
-                  text-sm
-                  sm:text-base
+                  border border-slate-800
+                  bg-[#050b12]
+                  hover:bg-slate-800/70
+                  flex items-center justify-center
+                  gap-3 text-sm font-medium
                   transition
                 "
               >
-                <span className="text-lg font-bold">G</span>
-
+                <Chrome size={18} />
                 Continue with Google
               </button>
 
-              {/* ================================================= */}
-              {/* SIGN UP */}
-              {/* ================================================= */}
+              {/* Sign Up */}
+              <p className="text-center text-xs sm:text-sm text-slate-600 mt-6">
 
-              <p className="text-center text-xs sm:text-sm text-slate-500 mt-7">
                 Don't have an account?{" "}
+
                 <button
                   type="button"
-                  className="
-                    text-blue-500
-                    hover:text-blue-400
-                    font-medium
-                  "
+                  className="text-cyan-400 hover:text-cyan-300 font-semibold"
                 >
                   Sign Up
                 </button>
+
               </p>
+
             </div>
+
+            {/* Footer */}
+            <div className="flex items-center justify-center gap-2 mt-6 text-[11px] text-slate-600">
+
+              <Shield size={13} />
+
+              Your account is protected with secure authentication.
+
+            </div>
+
           </div>
+
         </section>
+
       </div>
-
-      {/* ================================================= */}
-      {/* MOBILE BOTTOM NAV */}
-      {/* ================================================= */}
-
-      <nav
-        className="
-          md:hidden
-          fixed
-          left-0
-          right-0
-          bottom-0
-          z-[100]
-          border-t
-          border-slate-800
-          bg-[#070d1d]
-          backdrop-blur-xl
-          pb-[env(safe-area-inset-bottom)]
-        "
-      >
-        <div className="h-16 grid grid-cols-4">
-          <MobileNavItem
-            icon={<Home size={20} />}
-            label="Home"
-            active
-          />
-
-          <MobileNavItem
-            icon={<Search size={20} />}
-            label="Explore"
-          />
-
-          <MobileNavItem
-            icon={<Gamepad2 size={20} />}
-            label="Games"
-          />
-
-          <MobileNavItem
-            icon={<User size={20} />}
-            label="Profile"
-          />
-        </div>
-      </nav>
-
-      {/* ================================================= */}
-      {/* BOTTOM SYSTEM AREA BACKGROUND */}
-      {/* ================================================= */}
-
-      <div
-        className="
-          fixed
-          md:hidden
-          bottom-0
-          left-0
-          right-0
-          h-[env(safe-area-inset-bottom)]
-          bg-[#070d1d]
-          z-[90]
-        "
-      />
     </main>
   );
 }
 
-/* ================================================= */
-/* FEATURE COMPONENT */
-/* ================================================= */
+/* =========================================================
+   FEATURE
+========================================================= */
 
 function Feature({
   icon,
@@ -766,51 +453,22 @@ function Feature({
   text: string;
 }) {
   return (
-    <div className="flex items-center gap-3">
-      <div className="text-slate-300">{icon}</div>
+    <div className="flex flex-col gap-2">
+
+      <div className="text-cyan-400">
+        {icon}
+      </div>
 
       <div>
-        <p className="font-semibold text-sm">{title}</p>
+        <p className="font-bold text-sm">
+          {title}
+        </p>
 
-        <p className="text-xs text-slate-400">{text}</p>
+        <p className="text-[10px] text-slate-500">
+          {text}
+        </p>
       </div>
+
     </div>
-  );
-}
-
-/* ================================================= */
-/* MOBILE NAV ITEM */
-/* ================================================= */
-
-function MobileNavItem({
-  icon,
-  label,
-  active = false,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  active?: boolean;
-}) {
-  return (
-    <button
-      type="button"
-      className={`
-        flex
-        flex-col
-        items-center
-        justify-center
-        gap-1
-        transition
-        ${
-          active
-            ? "text-blue-500"
-            : "text-slate-500 hover:text-slate-300"
-        }
-      `}
-    >
-      {icon}
-
-      <span className="text-[10px] font-medium">{label}</span>
-    </button>
   );
 }
